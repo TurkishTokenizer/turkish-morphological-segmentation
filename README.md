@@ -2,14 +2,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h3 align="center">Turkish Morphology-Aware Segmentation Dataset</h3>
+  <h3 align="center">Turkish Morphological Segmentation</h3>
 
   <p align="center">
-    A specialized dataset for Turkish morphological segmentation, serving as a high-quality reference for academic research.
+    A comprehensive Turkish morphological segmentation system and dataset.
     <br />
-    <a href="https://github.com/TurkishTokenizer/turkish-morphological-segmentation-dataset/issues">Report Bug</a>
+    <a href="https://github.com/TurkishTokenizer/turkish-morphological-segmentation/issues">Report Bug</a>
     ·
-    <a href="https://github.com/TurkishTokenizer/turkish-morphological-segmentation-dataset/issues">Request Feature</a>
+    <a href="https://github.com/TurkishTokenizer/turkish-morphological-segmentation/issues">Request Feature</a>
   </p>
 </div>
 
@@ -50,21 +50,58 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This repository contains a specialized dataset for Turkish morphological segmentation, derived from a combination of Wiktionary-based resources (Kaikki), Zemberek NLP tool outputs, and Wikimedia text corpora. The dataset provides structured segmentation of Turkish words into roots, suffixes, and morphemes, enriched with Part-of-Speech (POS) tags. It is designed to serve as a high-quality reference resource for academic research in computational linguistics, specifically focusing on finite-state transducer (FST) based morphology and linguistic analysis.
+This repository hosts a Turkish Morphological Segmentation system and a specialized dataset derived from a combination of Wiktionary-based resources (Kaikki), Zemberek NLP tool outputs, and Wikimedia text corpora. The project provides structured segmentation of Turkish words into roots, suffixes, and morphemes, enriched with Part-of-Speech (POS) tags. It is designed to serve as a high-quality reference resource for academic research in computational linguistics, specifically focusing on finite-state transducer (FST) based morphology and linguistic analysis.
 
 ### Abstract
 
-This dataset is intended for experimental and educational purposes, offering a linguistically informed reference point alongside purely statistical subword tokenization methods (like BPE).
+This project offers an experimental and educational platform, providing a linguistically informed reference point alongside purely statistical subword tokenization methods (like BPE and WordPiece).
 
 ### Motivation
 
 Turkish is an agglutinative language with complex morphophonotactics, where a single root can generate thousands of valid word forms through suffixation. Standard subword tokenization methods used in modern NLP systems often fail to capture the true linguistic structure of Turkish words, leading to suboptimal representation of morphological boundaries.
 
-This dataset aims to bridge that gap by providing:
+This project aims to bridge that gap by providing:
 
 *   **Linguistically Accurate Segmentation**: Unlike statistical splits, these segmentations respect actual morpheme boundaries defined by Turkish grammar.
 *   **Root & POS Preservation**: Explicit identification of root forms and their associated parts of speech.
 *   **FST-Ready Data**: Structures compatible with Finite State Transducer pipelines, facilitating research into rule-based and hybrid morphological analyzers.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- SYSTEM ARCHITECTURE -->
+## System Architecture
+
+The core of this project is a **FST-based Morphological Analyzer** with **Context-Aware Disambiguation**.
+
+### 1. FST-based Morphology (`pynini`)
+The analyzer uses [Pynini](https://www.openfst.org/twiki/bin/view/GRM/Pynini) to construct Finite State Transducers (FSTs) that model Turkish morphology.
+*   **Lexicon Driven**: Roots are loaded from a normalized JSON lexicon (`data/final_core_roots.json`).
+*   **Morphotactics**: Suffix rules (plural, possessive, case, etc.) are compiled into FSTs.
+*   **Phonology**: Alternation rules (e.g., consonant softening: `kitap` -> `kitabı`) are handled by alternating root generators.
+
+### 2. Context-Aware Disambiguation (Viterbi)
+Since a single word can often be analyzed in multiple ways (e.g., *yüz* can be "face" (NOUN) or "swim" (VERB)), the system includes a disambiguation layer:
+*   **Viterbi Decoding**: Finds the most probable sequence of analyses for a whole sentence.
+*   **Transition Model**: Uses a bigram model of POS tags (e.g., `ADJ` -> `NOUN` is likely).
+*   **Heuristics**: Applies penalties/boosts based on sentence position and word length (e.g., verbs are more likely at the end of a sentence).
+
+```python
+# Example Usage
+from src.turkish_segmentation import load_lexicon, normalize_lexicon, build_analyzer, ContextAwareDisambiguator, analyze_sentence_context_aware
+
+# 1. Init System
+lex = normalize_lexicon(load_lexicon("data/final_core_roots.json"))
+analyzer = build_analyzer(lex)
+disambiguator = ContextAwareDisambiguator(analyzer)
+
+# 2. Analyze
+sentence = "yüzü güzel"
+results = analyze_sentence_context_aware(sentence, disambiguator)
+
+# Output:
+# yüzü  -> yüz+NOUN+POSS.3SG  (Correctly identifies 'face' over 'swim')
+# güzel -> güzel+ADJ
+```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -116,9 +153,9 @@ You will need Python installed to run the processing scripts or notebooks.
 
 1.  Clone the repo
     ```sh
-    git clone https://github.com/TurkishTokenizer/turkish-morphological-segmentation-dataset.git
+    git clone https://github.com/TurkishTokenizer/turkish-morphological-segmentation.git
     ```
-2.  Install any necessary packages (if running the scripts)
+2.  Install any necessary packages
     ```sh
     pip install -r requirements.txt
     ```
@@ -167,14 +204,14 @@ This dataset was constructed through a multi-stage filtering and processing pipe
 **Limitations:**
 *   **Coverage**: While extensive, the lexicon may not fully cover domain-specific terminology or rare loanwords.
 
-See the [open issues](https://github.com/TurkishTokenizer/turkish-morphological-segmentation-dataset/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/TurkishTokenizer/turkish-morphological-segmentation/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## License
 
-This dataset is licensed under the **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)** license.
+This project is licensed under the **Apache License 2.0**.
 
 You are free to:
 *   **Share** — copy and redistribute the material in any medium or format.
@@ -182,9 +219,9 @@ You are free to:
 
 Under the following terms:
 *   **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
-*   **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+*   **Changes** — You must verify that you have changed the files.
 
-Full license text: [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/)
+Full license text: [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 **Attribution Requirements:**
 *   **Kaikki.org**: Data derived from Wiktionary via Kaikki.org.
@@ -196,16 +233,16 @@ Full license text: [https://creativecommons.org/licenses/by-sa/4.0/](https://cre
 <!-- CITATION -->
 ## Citation
 
-If you use this dataset in your research, please cite it as follows:
+If you use this dataset or system in your research, please cite it as follows:
 
 ```bibtex
 @misc{turkish_morph_segmentation_2026,
-  author = {Atakan Yılmaz and Kağan Arıbaş},
-  title = {Turkish Morphology-Aware Segmentation Dataset},
+  author = {Kağan Arıbaş and Atakan Yılmaz},
+  title = {Turkish Morphological Segmentation},
   year = {2026},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/TurkishTokenizer/turkish-morphological-segmentation-dataset}}
+  howpublished = {\url{https://github.com/TurkishTokenizer/turkish-morphological-segmentation}}
 }
 ```
 
