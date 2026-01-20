@@ -193,13 +193,8 @@ This dataset was constructed through a multi-stage filtering and processing pipe
 
 
 
-<!-- ROADMAP -->
-## Roadmap & Limitations
 
-- [ ] Add Changelog
-- [ ] Add back to top links
-- [ ] Synthetic Data Generation: Future iterations may include synthetically generated derivations to expand coverage.
-- [ ] Clean-Room Re-derivation: Work is ongoing to further verify boundaries against strictly rule-based clean-room implementations.
+## Limitations
 
 **Limitations:**
 *   **Coverage**: While extensive, the lexicon may not fully cover domain-specific terminology or rare loanwords.
