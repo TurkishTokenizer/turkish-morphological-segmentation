@@ -66,7 +66,7 @@ This project aims to bridge that gap by providing:
 *   **Root & POS Preservation**: Explicit identification of root forms and their associated parts of speech.
 *   **FST-Ready Data**: Structures compatible with Finite State Transducer pipelines, facilitating research into rule-based and hybrid morphological analyzers.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- SYSTEM ARCHITECTURE -->
 ## System Architecture
@@ -103,7 +103,7 @@ results = analyze_sentence_context_aware(sentence, disambiguator)
 # güzel -> güzel+ADJ
 ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- DATASET DESCRIPTION -->
 ## Dataset Description
@@ -136,7 +136,7 @@ The repository is organized as follows:
 *   Full sentence parses or treebank-style dependency graphs.
 *   Raw web crawl corpora (this is a focused morphological lexicon).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -161,7 +161,7 @@ You will need Python installed to run the processing scripts or notebooks.
     ```
     *(Note: `requirements.txt` generation is in progress. Main dependencies are likely `pandas`, `tqdm`, etc.)*
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- DATA SOURCES -->
 ## Data Sources and Processing
@@ -176,7 +176,7 @@ This dataset was constructed through a multi-stage filtering and processing pipe
 *   *No raw Wikipedia sentences are redistributed; all Wikimedia-derived data has been transformed into derived linguistic representations.*
 *   *Ambiguous or low-confidence entries were processed using an LLM-assisted normalization step, used solely for filtering, validation, and annotation of existing lexical items.*
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- INTENDED USE -->
 ## Intended Use
@@ -191,7 +191,7 @@ This dataset was constructed through a multi-stage filtering and processing pipe
 *   **Production Systems**: This dataset is NOT production-ready. It has not been stress-tested for commercial reliable throughput or exhaustive coverage of the modern Turkish lexicon.
 *   **General Purpose Training**: Not recommended as a sole data source for training general-purpose Large Language Models (LLMs) without supplementary corpora.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- ROADMAP -->
 ## Roadmap & Limitations
@@ -206,7 +206,7 @@ This dataset was constructed through a multi-stage filtering and processing pipe
 
 See the [open issues](https://github.com/TurkishTokenizer/turkish-morphological-segmentation/issues) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- LICENSE -->
 ## License
@@ -228,7 +228,7 @@ Full license text: [http://www.apache.org/licenses/LICENSE-2.0](http://www.apach
 *   **Zemberek NLP**: Morphological validation utilized the Zemberek NLP library.
 *   **Wikimedia**: Textual data sourced from Wikimedia Foundation projects.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- CITATION -->
 ## Citation
@@ -246,7 +246,7 @@ If you use this dataset or system in your research, please cite it as follows:
 }
 ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
@@ -256,4 +256,3 @@ If you use this dataset or system in your research, please cite it as follows:
 *   [Kaikki.org](https://kaikki.org/)
 *   [Zemberek-NLP](https://github.com/ahmetaa/zemberek-nlp)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
