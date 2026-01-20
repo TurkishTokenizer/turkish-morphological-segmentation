@@ -76,7 +76,7 @@ The core of this project is a **FST-based Morphological Analyzer** with **Contex
 ### 1. FST-based Morphology (`pynini`)
 The analyzer uses [Pynini](https://www.openfst.org/twiki/bin/view/GRM/Pynini) to construct Finite State Transducers (FSTs) that model Turkish morphology.
 *   **Lexicon Driven**: Roots are loaded from a normalized JSON lexicon (`data/final_core_roots.json`).
-*   **Morphotactics**: Suffix rules (plural, possessive, case, etc.) are compiled into FSTs.
+*   **Morphotactics**: Suffix rules (plural, possessive, case, etc.) are compiled into FSTs. (See [Suffix Tables](docs/SUFFIX_TABLES.md) for details)
 *   **Phonology**: Alternation rules (e.g., consonant softening: `kitap` -> `kitabı`) are handled by alternating root generators.
 
 ### 2. Context-Aware Disambiguation (Viterbi)
