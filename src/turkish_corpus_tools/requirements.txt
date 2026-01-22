@@ -1,8 +1,0 @@
-datasets
-# apache-beam  <-- Bu kütüphane Windows/Python 3.13'te derleme hatası veriyor, şimdilik kapattık.
-
-# Kelime Sınıflandırma Bağımlılıkları
-torch  # GPU desteği için PyTorch
-stanza  # Stanford NLP - Türkçe POS tagging
-transformers  # Hugging Face Transformers (opsiyonel)
-tqdm  # İlerleme çubuğu
