@@ -1,5 +1,6 @@
-# Turkish Suffix Tables
+## 1) Question Particles (Soru Edatları)
 
+<<<<<<< HEAD
 **Language:** [English](#english) | [Türkçe](#turkish) | [日本語](#japanese) | [हिन्दी](#hindi)
 
 <a id="english"></a>
@@ -29,6 +30,30 @@
 
 ---
 
+=======
+| Category          | Surface Forms                         | Analyzer Output | Turkish Equivalent              | Example (TR)   |
+| ----------------- | ------------------------------------- | --------------- | ------------------------------- | -------------- |
+| Question particle | mi / mı / mu / mü                     | +QUES           | question particle (soru edatı)  | *Geldin mi?*   |
+| Question + 2SG    | misin / mısın / musun / müsün         | +QUES+2SG       | question + person (soru + kişi) | *İyi misin?*   |
+| Question + 1SG    | miyim / mıyım / muyum / müyüm         | +QUES+1SG       | question + person (soru + kişi) | *Ben miyim?*   |
+| Question + 1PL    | miyiz / mıyız / muyuz / müyüz         | +QUES+1PL       | question + person (soru + kişi) | *Hazır mıyız?* |
+| Question + 2PL    | misiniz / mısınız / musunuz / müsünüz | +QUES+2PL       | question + person (soru + kişi) | *Siz misiniz?* |
+
+---
+
+## 2) Derivational Suffixes (Yapım Ekleri)
+
+| Category           | Surface Forms         | Analyzer Output                           | Turkish Equivalent    | Example (TR) |
+| ------------------ | --------------------- | ----------------------------------------- | --------------------- | ------------ |
+| Noun-forming       | lık / lik / luk / lük | +DER.lık / +DER.lik / +DER.luk / +DER.lük | -lIk (isim yapma eki) | *kalemlik*   |
+| Agent / profession | cı / ci / cu / cü     | +DER.cı / +DER.ci / +DER.cu / +DER.cü     | -cI (meslek/iş)       | *kahveci*    |
+| Agent / profession | çı / çi / çu / çü     | +DER.çı / +DER.çi / +DER.çu / +DER.çü     | -çI (meslek/iş)       | *işçi*       |
+| Without / lacking  | sız / siz / suz / süz | +DER.sız / +DER.siz / +DER.suz / +DER.süz | -sIz (yokluk eki)     | *parasız*    |
+| With / having      | lı / li / lu / lü     | +DER.lı / +DER.li / +DER.lu / +DER.lü     | -lI (sahiplik eki)    | *şehirli*    |
+
+---
+
+>>>>>>> 5d00a48d812dc7dc2ae9968593d9bad4ad337fd9
 ## 3) Nominal Inflection (İsim Çekim Ekleri)
 
 ### 3.1 Plural (Çoğul)
@@ -228,6 +253,7 @@
 | Punctuation | ;            | +PUNCT.semicolon   | semicolon (noktalı virgül)   | *Bunu yap; sonra gel.* |
 
 ---
+<<<<<<< HEAD
 
 <a id="turkish"></a>
 ## Türkçe
@@ -909,3 +935,5 @@
 | विरामचिह्न | ; | +PUNCT.semicolon | अर्धविराम (noktalı virgül) | *Bunu yap; sonra gel.* |
 
 ---
+=======
+>>>>>>> 5d00a48d812dc7dc2ae9968593d9bad4ad337fd9
