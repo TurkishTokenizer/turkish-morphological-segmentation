@@ -1,0 +1,3 @@
+[submodule "src/turkish-morphological-segmentation-dataset"]
+	path = src/turkish-morphological-segmentation-dataset
+	url = https://github.com/TurkishTokenizer/turkish-morphological-segmentation-dataset.git
