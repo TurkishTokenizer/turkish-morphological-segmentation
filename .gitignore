@@ -210,7 +210,6 @@ kaikki_processing/tr-extract.jsonl
 
 # Large data files (GitHub 100MB limit)
 wikimedia_data/
-*.json
 !**/package.json
 !**/tsconfig.json
 
