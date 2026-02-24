@@ -91,7 +91,7 @@ We adopt P(state|word) as a discriminative emission, which empirically stabilize
 
 **Viterbi scoring**:
 
-$$\text{score}(t, i) = \text{score}(t{-}1, j^*) + \log P_{trans}(s_i \mid s_{j^*}) + \beta \cdot \log P_{emit}(s_i \mid w_t)$$
+$$\text{score}(t, i) = \text{score}(t{-}1, j^{*}) + \log P_{trans}(s_i \mid s_{j^{*}}) + \beta \cdot \log P_{emit}(s_i \mid w_t)$$
 
 where β is a tunable emission weight.
 
